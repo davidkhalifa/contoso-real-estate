@@ -1,12 +1,11 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the
 // README at: https://github.com/devcontainers/templates/tree/main/src/javascript-node
+// devcontainer.json
 {
   "name": "Node.js",
 
-  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
   "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
 
-  // Features to add to the dev container. More info: https://containers.dev/features.
   "features": {
     "ghcr.io/azure/azure-dev/azd:latest": {},
     "ghcr.io/devcontainers/features/node:1": {
@@ -27,7 +26,6 @@
     }
   },
 
-  // add labels to ports
   "portsAttributes": {
     "4280": {
       "label": "Portal App",
@@ -51,13 +49,10 @@
     }
   },
 
-  // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [4280, 4242, 3000, 1337],
 
-  // Use 'postCreateCommand' to run commands after the container is created.
   "postCreateCommand": "bash .devcontainer/post-create-command.sh",
 
-  // Configure tool-specific properties.
   "customizations": {
     "vscode": {
       "extensions": [
@@ -84,13 +79,12 @@
     }
   },
 
-  // At least 8gb of RAM is needed due containers
   "hostRequirements": {
     "cpus": 4,
     "memory": "8gb",
     "storage": "32gb"
-  }
+  },
 
-  // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-  // "remoteUser": "root"
+  // This line ensures you are root in the container (if you need that).
+  "remoteUser": "root"
 }
